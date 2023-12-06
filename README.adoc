@@ -11,10 +11,28 @@ https://python-poetry.org/docs/#installation[here].
 
 . Open a Poetry shell with `poetry shell`.
 
-. Run the tests: `robot --pythonpath . .` (two dots). Tests should fail. This is
-unexpected behavior,
-https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#taking-resource-files-into-use[per the docs].
+. Run the tests: `robot --pythonpath . .` (two dots). Tests should pass. This is
+expected behavior.
 
-. Make the resource path in `tests/test_a.robot` absolute by adding
-`resources/`. Tests should pass. However, notice there is still an error related
-to importing `NonexistentLibrary`. This is expected behavior.
+. Notice, however, that trying to R-click on `MyCustomLibrary.py` > Go to
+Definition does not work. Same with `my_resource.resource`. This is unexpected
+behavior for the VSCode LSP extension.
+
+. Change the `Library` line in `tests/test_a.robot` to: `Library
+MyCustomLibrary` and run again. "Numbers should check out" test should fail.
+This is unexpected,
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#library-name[per the docs].
++
+> If the name of a class implementing a library is the same as the name of the module, Robot Framework allows dropping the class name when importing the library.
++
+The LSP extension also still fails to Go to Definition.
+
+. Remove the `Library` directive and "Numbers should check out" test. The
+"String should equal itself" test should still pass, but the LSP extension still
+doesn't work.
+
+. Change the `Resource` line to: `Resource    resources/my_resource.resource`.
+The test should now fail. This is unexpected behavior,
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#taking-resource-files-into-use[per the docs].
++
+> If the file is not found there, it is then searched from the directories in Python's module search path.
