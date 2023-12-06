@@ -1,5 +1,6 @@
 *** Settings ***
-Resource    resources/my_resource.robot
+Resource    my_resource.resource
+Library     NonexistentLibrary
 
 
 *** Test Cases ***
