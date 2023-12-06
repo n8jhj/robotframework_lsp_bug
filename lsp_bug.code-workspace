@@ -4,6 +4,11 @@
       "path": "."
     }
   ],
+  "extensions": {
+    "recommendations": [
+      "asciidoctor.asciidoctor-vscode"
+    ]
+  },
   "settings": {
     "[robotframework]": {
       "editor.formatOnSave": true

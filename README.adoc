@@ -1,0 +1,20 @@
+= README
+
+This repo exists to demonstrate a bug in the
+https://github.com/robocorp/robotframework-lsp/tree/master/robotframework-ls[Robot Framework LSP for VSCode].
+
+== How to reproduce
+
+. First run `poetry install` to install dependencies.
+.. If you haven't yet installed Poetry itself, follow the directions
+https://python-poetry.org/docs/#installation[here].
+
+. Open a Poetry shell with `poetry shell`.
+
+. Run the tests: `robot --pythonpath . .` (two dots). Tests should fail. This is
+unexpected behavior,
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#taking-resource-files-into-use[per the docs].
+
+. Make the resource path in `tests/test_a.robot` absolute by adding
+`resources/`. Tests should pass. However, notice there is still an error related
+to importing `NonexistentLibrary`. This is expected behavior.
