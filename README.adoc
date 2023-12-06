@@ -21,7 +21,7 @@ behavior for the VSCode LSP extension.
 . Change the `Library` line in `tests/test_a.robot` to: `Library
 MyCustomLibrary` and run again. "Numbers should check out" test should fail.
 This is unexpected,
-https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#library-name[per the docs].
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#library-name[per the docs]:
 +
 > If the name of a class implementing a library is the same as the name of the module, Robot Framework allows dropping the class name when importing the library.
 +
@@ -31,8 +31,8 @@ The LSP extension also still fails to Go to Definition.
 "String should equal itself" test should still pass, but the LSP extension still
 doesn't work.
 
-. Change the `Resource` line to: `Resource    resources/my_resource.resource`.
-The test should now fail. This is unexpected behavior,
-https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#taking-resource-files-into-use[per the docs].
+. Change the `Resource` line to: `Resource    my_resource.resource`. The test
+should now fail. This is unexpected behavior,
+https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#taking-resource-files-into-use[per the docs]:
 +
 > If the file is not found there, it is then searched from the directories in Python's module search path.
