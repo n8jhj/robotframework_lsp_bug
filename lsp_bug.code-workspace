@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[robotframework]": {
+      "editor.formatOnSave": true
+    },
+    "robot.pythonpath": [
+      "${workspaceFolder}"
+    ]
+  }
+}
